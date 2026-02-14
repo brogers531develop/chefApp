@@ -1,6 +1,13 @@
-# 🧑‍🍳 ChefApp
+import fs from "fs";
 
-> AI-powered multi-agent cooking orchestration system
+
+const projectName = "ChefApp";
+const tagline = "AI-powered multi-agent cooking orchestration system";
+const port = process.env.PORT || 4585;
+
+const readme = `# 🧑‍🍳 ${projectName}
+
+> ${tagline}
 
 ---
 
@@ -28,7 +35,7 @@ Built for experimentation with **collaborative AI agents**, ChefApp demonstrates
 
 ChefApp uses specialized agents that collaborate to execute cooking workflows:
 
-```
+\`\`\`
 User Request
      │
      ▼
@@ -39,7 +46,7 @@ Chef Agent
      ├──► Finance Agent
      │
      └──► Delivery Agent
-```
+\`\`\`
 
 ### Agents
 
@@ -96,27 +103,27 @@ Real-time system events stream via Socket.IO:
 
 ### 1. Clone repo
 
-```
+\`\`\`
 git clone https://github.com/YOURNAME/chefApp.git
 cd chefApp
-```
+\`\`\`
 
 ### 2. Install dependencies
 
-```
+\`\`\`
 npm install
-```
+\`\`\`
 
 ### 3. Create environment file
 
-Create `.env`
+Create \`.env\`
 
-```
-PORT=4585
+\`\`\`
+PORT=${port}
 MONGO_URI=yourMongoConnection
 OPENAI_API_KEY=yourKey
 ELEVENLABS_API_KEY=optional
-```
+\`\`\`
 
 ---
 
@@ -124,19 +131,19 @@ ELEVENLABS_API_KEY=optional
 
 ### Development
 
-```
+\`\`\`
 npm run dev
-```
+\`\`\`
 
 ### Production
 
-```
+\`\`\`
 npm start
-```
+\`\`\`
 
 Server runs at:
 
-👉 http://localhost:4585
+👉 http://localhost:${port}
 
 ---
 
@@ -144,17 +151,17 @@ Server runs at:
 
 ### Create Cooking Workflow
 
-```
+\`\`\`
 POST /api/cook
-```
+\`\`\`
 
 Body:
 
-```json
+\`\`\`json
 {
   "dish": "Beef Wellington"
 }
-```
+\`\`\`
 
 ---
 
@@ -162,9 +169,9 @@ Body:
 
 ### Listen for agent updates
 
-```js
+\`\`\`js
 socket.on("workflow:update", console.log);
-```
+\`\`\`
 
 ---
 
@@ -220,3 +227,8 @@ Built as part of an exploration into collaborative intelligence systems and real
 ---
 
 🔥 Built with curiosity, experimentation, and a love of great food.
+`;
+
+fs.writeFileSync("README.md", readme);
+console.log("✅ README.md generated!");
+

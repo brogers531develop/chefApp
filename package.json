@@ -2,11 +2,13 @@
   "name": "cookos-v3-optimized",
   "type": "module",
   "scripts": {
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "generate:readme": "node scripts/generate-readme.js"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "fs": "^0.0.1-security",
     "openai": "^4.56.0",
     "socket.io": "^4.7.5"
   }
