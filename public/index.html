@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CookOS V3 — Agent Kitchen Ops</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <div class="kicker">COOKOS V3</div>
+        <h1>Agent Kitchen Ops</h1>
+        <div class="sub">
+          Ask the Manager for a dish. Watch agents coordinate. When ingredients arrive, press <b>LET’S COOK</b>.
+        </div>
+      </div>
+
+      <div class="pillrow">
+        <div class="pill" id="connPill">● disconnected</div>
+        <div class="pill" id="statusPill">Status: idle</div>
+        <div class="pill">ZIP required</div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>User Request</h2>
+
+        <div class="row">
+          <input id="promptInput" placeholder="e.g. Beef Wellington" />
+        </div>
+
+        <div class="row" style="margin-top:10px;">
+          <input id="zipInput" class="zip" placeholder="ZIP (e.g. 60657)" maxlength="10" />
+          <button id="startBtn">Start Job</button>
+        </div>
+
+        <div class="row" style="margin-top:10px;">
+          <select id="personalitySelect" class="select">
+            <option value="calm_comedic">Calm + Comedic</option>
+            <option value="motivational">Motivational</option>
+            <option value="strict_precision">Strict Precision</option>
+          </select>
+          <button id="letsCookBtn" disabled>LET’S COOK</button>
+        </div>
+
+        <div class="foot">
+          <button id="nextStepBtn" disabled>Next Step</button>
+          <button id="resetBtn" class="ghost">Reset</button>
+        </div>
+
+        <div class="hint" id="hintText">
+          Tip: After the plan is ready, press <b>LET’S COOK</b> to generate a time-coded script and start execution.
+        </div>
+
+        <h2 style="margin-top:14px;">Final Output</h2>
+        <div id="finalOutput" class="final"></div>
+      </div>
+
+      <div class="card forum">
+        <div class="forumHead">
+          <div>
+            <h2 style="margin:0">Agent Forum</h2>
+            <div class="small">Human-readable chatter + expandable artifacts.</div>
+          </div>
+          <div class="small" id="jobTag">No job yet</div>
+        </div>
+
+        <div id="thread" class="thread"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js" defer></script>
+</body>
+</html>
